@@ -1,22 +1,33 @@
 import AdServiceConfig from "./adServiceConfig";
 
 class WebOSAdServiceConfig implements AdServiceConfig {
+    publisherId: string;
+    channelId: string;
+    gdprApproved: boolean;
+    isDebug: boolean;
+    userId: string;
+    isAutoplay: boolean;
+    webOSDeviceId: string;
+    webOSAppName: string;
+
     constructor(
-        private publisherId: string = 'defaultPublisherId',
-        private channelId: string = 'defaultChannelId',
-        private gdprApproved: boolean = false,
-        private webOSDeviceId: string = 'webOSDeviceId',
-        private webOSAppName: string = 'webOSAppName'
-    ) { }
-    async fetchMetadata(): Promise<any> {
-        // Fetch metadata from webOS service. Device ID, app name, etc.
-        return {
-            deviceId: this.webOSDeviceId,
-            appName: this.webOSAppName,
-            publisherId: this.publisherId,
-            channelId: this.channelId,
-            gdprApproved: this.gdprApproved
-        }
+        publisherId: string = 'defaultPublisherId',
+        channelId: string = 'defaultChannelId',
+        gdprApproved: boolean = false,
+        webOSDeviceId: string = '',
+        webOSAppName: string = '',
+        isDebug: boolean = false,
+        userId: string = '',
+        isAutoplay: boolean = false
+    ) {
+        this.publisherId = publisherId;
+        this.channelId = channelId;
+        this.gdprApproved = gdprApproved;
+        this.webOSDeviceId = webOSDeviceId;
+        this.webOSAppName = webOSAppName;
+        this.isDebug = isDebug;
+        this.userId = userId;
+        this.isAutoplay = isAutoplay;
     }
 }
 

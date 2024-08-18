@@ -7,17 +7,29 @@ import AdServiceConfig from "./adServiceConfig";
 
 
 class DefaultAdServiceConfig implements AdServiceConfig {
+
+    publisherId: string;
+    channelId: string;
+    gdprApproved: boolean;
+    isDebug: boolean;
+    userId: string;
+    isAutoplay: boolean;
+
+
     constructor(
-        private publisherId: string = 'defaultPublisherId',
-        private channelId: string = 'defaultChannelId',
-        private gdprApproved: boolean = false
-    ) { }
-    async fetchMetadata(): Promise<any> {
-        return {
-            publisherId: this.publisherId,
-            channelId: this.channelId,
-            gdprApproved: this.gdprApproved
-        }
+        publisherId: string = 'defaultPublisherId',
+        channelId: string = 'defaultChannelId',
+        gdprApproved: boolean = false,
+        isDebug: boolean = false,
+        userId: string = '',
+        isAutoplay: boolean = false
+    ) {
+        this.publisherId = publisherId;
+        this.channelId = channelId;
+        this.gdprApproved = gdprApproved;
+        this.isDebug = isDebug;
+        this.userId = userId;
+        this.isAutoplay = isAutoplay
     }
 }
 

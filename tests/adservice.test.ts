@@ -1,14 +1,28 @@
 import AdService from '../src/adService';
+import DefaultAdServiceConfig from '../src/config/defaultAdServiceConfig';
+import WebOSAdServiceConfig from '../src/config/webOSAdServiceConfig';
 
 describe('AdService', () => {
-    const validConfig = {
-        publisherId: 'a8ce40dc',
-        channelId: '62570352',
-        gdprApproved: true
-    };
+    const validConfig = new WebOSAdServiceConfig(
+        'a8ce40dc',
+        '62570352',
+        true,
+        'webOSDeviceId',
+        'webOSAppName',
+        false,
+        'userId',
+        true
+    );
+
 
     it('should throw error for invalid config', () => {
-        expect(() => new AdService({})).toThrow('Invalid configuration');
+        expect(() => new AdService(new DefaultAdServiceConfig(
+            '',
+            '',
+            false,
+            false,
+            '',
+        ))).toThrow('Invalid configuration');
     });
 
     it('should load ad data successfully', async () => {

@@ -11,6 +11,10 @@ class EngageAdsSDK {
         return this.adService.loadAd(params);
     }
 
+    displayAd(container: HTMLElement): void {
+        this.adService.displayAd(container);
+    }
+
     static init(config: any): EngageAdsSDK {
         return new EngageAdsSDK(config);
     }

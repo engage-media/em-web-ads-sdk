@@ -2,7 +2,12 @@ import DefaultAdServiceConfig from './defaultAdServiceConfig';
 import WebOSAdServiceConfig from './webOSAdServiceConfig';
 
 interface AdServiceConfig {
-    fetchMetadata(): Promise<any>;
+    publisherId: string;
+    channelId: string;
+    gdprApproved: boolean;
+    isDebug: boolean;
+    userId: string;
+    isAutoplay: boolean;
 }
 
 export default AdServiceConfig;
