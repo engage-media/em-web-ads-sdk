@@ -1,6 +1,6 @@
 {
   "name": "em-web-ads-sdk",
-  "version": "1.0.0",
+  "version": "1.0.1-alpha",
   "description": "The engage media web ads sdk for displaying VAST ads on any web-based platform.",
   "main": "index.js",
   "scripts": {
